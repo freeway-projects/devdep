@@ -15,5 +15,9 @@ DIAGRAM
 
 The tool Vagrant should be installed - Vagrant config files and boxes will be made available in this repository.
 
-For Ubuntu it is necessary to install a plugin to make sure the guest additions are at matching versions.
+For Ubuntu it is necessary to install a plugin to make sure the guest additions are at matching versions.  Details are at:
+
+    http://kvz.io/blog/2013/01/16/vagrant-tip-keep-virtualbox-guest-additions-in-sync/
+    https://github.com/dotless-de/vagrant-vbguest
+
 
