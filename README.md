@@ -22,10 +22,15 @@ For Ubuntu it is necessary to install a plugin to make sure the guest additions 
     
 Set the VM's up in structure like ~/projects....../vagrant_machines/newmachine1/vm
 
-and create a folder called ~/projects....../vagrant_machines/newmachine1/data
+and create a folder called ~/projects....../vagrant_machines/newmachine1/site_files
 
 as this will be a folder where shared folders will be stored.
 
+and on the VM create a directory called /home/sites as root - 755 root:root
+
+Then in the Vagrantfile add in the share:
+
+    config.vm.synced_folder "../site_files", "/home/sites"
 
 Default items to set up:
 
