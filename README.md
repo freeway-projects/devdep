@@ -19,5 +19,13 @@ For Ubuntu it is necessary to install a plugin to make sure the guest additions 
 
     http://kvz.io/blog/2013/01/16/vagrant-tip-keep-virtualbox-guest-additions-in-sync/
     https://github.com/dotless-de/vagrant-vbguest
+    
+Default items to set up:
+
+tasksel lamp server
+Add networking to a bootstrap.sh file and reference it as per vagrantup.com
+
+
+
 
 
