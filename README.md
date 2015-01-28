@@ -20,13 +20,23 @@ For Ubuntu it is necessary to install a plugin to make sure the guest additions 
     http://kvz.io/blog/2013/01/16/vagrant-tip-keep-virtualbox-guest-additions-in-sync/
     https://github.com/dotless-de/vagrant-vbguest
     
+Set the VM's up in structure like ~/projects....../vagrant_machines/newmachine1/vm
+
+and create a folder called ~/projects....../vagrant_machines/newmachine1/data
+
+as this will be a folder where shared folders will be stored.
+
+
 Default items to set up:
 
-update and dist-upgrade all packages.
+apt-get update and dist-upgrade all packages.
 
-tasksel lamp server
+mkdir ./sitefile on the host ins
 
-Add networking to a bootstrap.sh file and reference it as per vagrantup.com
+
+tasksel lamp-server
+
+##Add networking to a bootstrap.sh file and reference it as per vagrantup.com
 
 Install drush.
 
