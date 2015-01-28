@@ -24,7 +24,7 @@ Set the VM's up in structure like ~/projects....../vagrant_machines/newmachine1/
 
 and create a folder called ~/projects....../vagrant_machines/newmachine1/site_files
 
-as this will be a folder where shared folders will be stored.
+as this will be a folder where shared folders will be stored.  And chmod 777 this directory.
 
 and on the VM create a directory called /home/sites as root - 755 root:root
 
