@@ -51,13 +51,14 @@ or
     /etc/php5/conf.d/20-xdebug.ini
 and adding
 
+    xdebug.default_enable=1
     xdebug.remote_enable=1
     xdebug.remote_handler=dbgp
-    xdebug.remote_mode=req
-    xdebug.remote_connect_back=1
+    xdebug.remote_host=192.168.33.1
+    ;xdebug.remote_connect_back=1 ; Use remote_host or remote_connect_back. With a local VM remote_connect_back sho$
     xdebug.remote_port=9000
-    xdebug.show_local_vars=1
-
+    xdebug.remote_autostart=0
+    xdebug.remote_log=/tmp/php5-xdebug.log
 
 on workstation /etc/hosts
 
