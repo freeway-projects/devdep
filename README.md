@@ -26,8 +26,6 @@ and create a folder called ~/projects....../vagrant_machines/newmachine1/site_fi
 
 as this will be a folder where shared folders will be stored.  And chmod 777 this directory.
 
-and on the VM create a directory called /home/sites as root - 755 root:root
-
 Then in the Vagrantfile add in the share:
 
     config.vm.synced_folder "../site_files", "/home/sites"
@@ -36,10 +34,13 @@ Default items to set up:
 
 apt-get update and dist-upgrade all packages.
 
-mkdir ./sitefile on the host ins
-
-
 tasksel lamp-server
+
+Set up apache2-mpm-itk
+
+
+
+
 
 ##Add networking to a bootstrap.sh file and reference it as per vagrantup.com
 
