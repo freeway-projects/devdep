@@ -28,6 +28,8 @@ tasksel lamp server
 Add networking to a bootstrap.sh file and reference it as per vagrantup.com
 Install drush.
 enable mod rewrite
+add php5-xdebug
+
 
 
 
