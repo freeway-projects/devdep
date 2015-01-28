@@ -59,10 +59,13 @@ and adding
     xdebug.show_local_vars=1
 
 
+on workstation /etc/hosts
 
+acquialucid1    192.168.33.10
+test1.acquialucid1      192.168.33.10
 
-
-
+####apt-get install mc emacs locate
+apt-get install mc
 
 
 
