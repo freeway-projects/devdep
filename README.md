@@ -22,6 +22,8 @@ For Ubuntu it is necessary to install a plugin to make sure the guest additions 
     
 Default items to set up:
 
+update and dist-upgrade all packages.
+
 tasksel lamp server
 Add networking to a bootstrap.sh file and reference it as per vagrantup.com
 
