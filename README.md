@@ -13,12 +13,13 @@ This documents how to link various tools and services together to develop web ap
 
 The developer workstation should be a fairly powerful PC with plenty of RAM.  It will need to run a Virtual Machine (VM) comfortably as well as IDE's which may be fairly heavy on resources.
 
+
+#### Standard tools to install
+
 A document explaining how to set up a developer PC is available at:
 
 https://github.com/freewayprojects/linux-pc-developer-setup-guide
 
-
-#### Standard tools to install
 
 #### Vagrant
 
@@ -75,3 +76,10 @@ test1.acquialucid1      192.168.33.10
     apt-get install mc
     apt-get install drush
 
+### Development scripts
+
+Scripts should be available on the Vagrant VM to enable development.
+
+#### Set up project script
+
+One script should pull down code, load DB, set up vhost, change settings.
