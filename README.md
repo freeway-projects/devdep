@@ -89,3 +89,7 @@ Scripts should be available on the Vagrant VM to enable development.
 #### Set up project script
 
 One script should pull down code, load DB, set up vhost, change settings.
+
+Download code from repo.
+
+
