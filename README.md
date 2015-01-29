@@ -73,8 +73,14 @@ On the work stations the hosts file will need to be set up like:
 acquialucid1    192.168.33.10
 test1.acquialucid1      192.168.33.10
 
-    apt-get install mc
+    apt-get install mc git-core emacs
     apt-get install drush
+
+To work with Github etc we need to generate keys and upload them.
+
+$ ssh-keygen
+
+Choose DSA as this is slightly more seure than RSA.  No passphrase so that the commands can be scripted.
 
 ### Development scripts
 
