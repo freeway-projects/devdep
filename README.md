@@ -89,6 +89,15 @@ and adding:
     xdebug.remote_autostart=0
     xdebug.remote_log=/tmp/php5-xdebug.log
 
+Increase the memory used by MySql - use my-huge.cnf or similar.
+
+If using my-huge the line:
+
+    user = mysql 
+
+needs to be added to the file in the mysqld section - as it is in the original my.cnf.
+
+
 Set up the vhosts as necessary.
 
 The vhost file to use as a template is:
