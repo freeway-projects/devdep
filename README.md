@@ -25,6 +25,9 @@ https://github.com/freewayprojects/linux-pc-developer-setup-guide
 
 The tool Vagrant should be installed - Vagrant config files and boxes will be made available in this repository.  Vagrant works well with VirtualBox which should be installed as well - although other VM programs could be used.
 
+Apt-get install virtualbox build-essentials
+
+
 For Ubuntu it is necessary to install a plugin to make sure the guest additions are at matching versions.  Details are at:
 
     http://kvz.io/blog/2013/01/16/vagrant-tip-keep-virtualbox-guest-additions-in-sync/
