@@ -178,3 +178,8 @@ Create DB and user.
     mysql -u root -p --execute="GRANT ALL ON surreyacuksite.* TO 'surreyacuksite'@'localhost' IDENTIFIED BY 'uos3';" surreyacuksite
 
 
+Download DB and load it into the DB.
+
+Create new sites/default/local.settings.php with only the DB settings in it.
+
+
