@@ -170,4 +170,11 @@ One script should pull down code, load DB, set up vhost, change settings.
 
 Download code from repo.
 
+    git clone
+
+Create DB and user.
+
+    mysqladmin -u root -p create surreyacuksite
+    mysql -u root -p --execute="GRANT ALL ON surreyacuksite.* TO 'surreyacuksite'@'localhost' IDENTIFIED BY 'uos3';" surreyacuksite
+
 
