@@ -182,4 +182,15 @@ Download DB and load it into the DB.
 
 Create new sites/default/local.settings.php with only the DB settings in it.
 
+    <?php
+
+    $databases['default']['default'] = array(
+    'driver' => 'mysql',
+    'database' => 'surreyacuksite',
+    'username' => 'surreyacuksite',
+    'password' => 'uos3',
+    'host' => 'localhost',
+    'collation' => 'utf8_general_ci',
+    );
+
 
