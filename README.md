@@ -93,7 +93,7 @@ Set up the vhosts as necessary.
 
 The vhost file to use as a template is:
 
-<VirtualHost *:80>
+    <VirtualHost *:80>
 
     ServerName surreyacuksite.acquialucid1
     ##    ServerAlias *.vhostname.serverfqdn
@@ -120,7 +120,7 @@ The vhost file to use as a template is:
     # NB - This can be worked around with shell_exec etc but is a level of protection.
     # php_admin_value open_basedir /vagrant_data/surreycuksite/docroot/:/usr/share/php/:/tmp
 
-</VirtualHost>
+    </VirtualHost>
 
 
 On the work stations the hosts file will need to be set up like:
