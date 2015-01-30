@@ -144,11 +144,21 @@ NB - NB - NB    apt-get install drush
 
 Ap installs a (too) old version of drush - instead use commnds to at least get drush 5 installed
 
-To work with Github etc we need to generate keys and upload them.
+
+    root@server1:~# wget --quiet -O - http://ftp.drupal.org/files/projects/drush-7.x-5.8.tar.gz  | tar -zxf - -C /usr/local/share
+    root@server1:~# ln -s /usr/local/share/drush/drush /usr/local/bin/drush
+    root@server1:~# drush
+    root@server1:~# drush dl drush --destination=/usr/local/share
+
+
+To work with Github etc we need to generate keys and upload them.  Make sure you are the user 'vagrant'.
 
 $ ssh-keygen
 
 Choose DSA as this is slightly more seure than RSA.  No passphrase so that the commands can be scripted.
+
+Then upload the public key to Github.
+
 
 ### Development scripts
 
