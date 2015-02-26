@@ -1,5 +1,16 @@
-# devdep
-Development and deployment environment for web applications.
+# devdep - Development and deployment environment for web applications.
+
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [devdep](#)
+	- [Overview](#)
+	- [Set up](#)
+		- [Developer workstation](#)
+			- [Standard tools to install](#)
+			- [Vagrant](#)
+		- [Development scripts](#)
+			- [Set up project script](#)
+
 
 [[/images/pullpush_overview.png]]
 
