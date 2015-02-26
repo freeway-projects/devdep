@@ -3,7 +3,8 @@
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [devdep](#)
+- [Project name: Development and deployment environment for web applications.](#)
+- [Project title: devdep](#)
 	- [Overview](#)
 	- [Set up](#)
 		- [Developer workstation](#)
@@ -11,9 +12,6 @@
 			- [Vagrant](#)
 		- [Development scripts](#)
 			- [Set up project script](#)
-
-
-[[/images/pullpush_overview.png]]
 
 
 ![alt text](https://docs.google.com/drawings/d/1e-bYXsE9qtk0sOts_jJxmsNMz1Mhxa_Sck-aXAY195M/pub?w=960&amp;h=720 "Logo Title Text 1")
