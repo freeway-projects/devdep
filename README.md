@@ -1,7 +1,7 @@
 # devdep
 Development and deployment environment for web applications.
 
-DIAGRAM
+[[/images/pullpush_overview.png]]
 
 ## Overview
 
