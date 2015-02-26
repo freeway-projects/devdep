@@ -1,3 +1,6 @@
+NB - NB - NB - Now being handled in the wiki.
+
+
 # Project name: Development and deployment environment for web applications.
 # Project title: devdep
 
