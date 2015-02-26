@@ -7,6 +7,7 @@ Development and deployment environment for web applications.
 ![alt text](https://docs.google.com/drawings/d/1T_M633W0tE06bcuB1LsS3eH14eaeEcBBffnV3-7pdVM/pub?w=960&amp;h=720 "Logo Title Text 1")
 
 
+![alt text](https://docs.google.com/drawings/d/1T_M633W0tE06bcuB1LsS3eH14eaeEcBBffnV3-7pdVM/pub?w=960&h=720 "Logo Title Text 2")
 
 ## Overview
 
