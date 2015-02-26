@@ -1,4 +1,5 @@
-# devdep - Development and deployment environment for web applications.
+# Project name: Development and deployment environment for web applications.
+# Project title: devdep
 
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
