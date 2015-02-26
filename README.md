@@ -1,17 +1,6 @@
 # Project name: Development and deployment environment for web applications.
 # Project title: devdep
 
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [Project name: Development and deployment environment for web applications.](#)
-- [Project title: devdep](#)
-	- [Overview](#)
-	- [Set up](#)
-		- [Developer workstation](#)
-			- [Standard tools to install](#)
-			- [Vagrant](#)
-		- [Development scripts](#)
-			- [Set up project script](#)
 
 
 ![alt text](https://docs.google.com/drawings/d/1e-bYXsE9qtk0sOts_jJxmsNMz1Mhxa_Sck-aXAY195M/pub?w=960&amp;h=720 "Logo Title Text 1")
@@ -23,9 +12,9 @@
 
 This documents how to link various tools and services together to develop web applications in a developer friendly and flexible way.
 
-## Set up
+== Set up ==
 
-### Developer workstation
+=== Developer workstation ===
 
 The developer workstation should be a fairly powerful PC with plenty of RAM.  It will need to run a Virtual Machine (VM) comfortably as well as IDE's which may be fairly heavy on resources.
 
