@@ -1,6 +1,8 @@
 # Project name: Development and deployment environment for web applications.
 # Project title: devdep
 
+* auto-gen TOC:
+{:toc}
 
 
 ![alt text](https://docs.google.com/drawings/d/1e-bYXsE9qtk0sOts_jJxmsNMz1Mhxa_Sck-aXAY195M/pub?w=960&amp;h=720 "Logo Title Text 1")
