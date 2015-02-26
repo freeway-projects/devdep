@@ -4,7 +4,8 @@ Development and deployment environment for web applications.
 [[/images/pullpush_overview.png]]
 
 
-![alt text](https://docs.google.com/a/freewayprojects.com/drawings/d/1e-bYXsE9qtk0sOts_jJxmsNMz1Mhxa_Sck-aXAY195M/edit?usp=sharing "Logo Title Text 1")
+![alt text](https://docs.google.com/drawings/d/1T_M633W0tE06bcuB1LsS3eH14eaeEcBBffnV3-7pdVM/pub?w=480&amp;h=360 "Logo Title Text 1")
+
 
 
 ## Overview
