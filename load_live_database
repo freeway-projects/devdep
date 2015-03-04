@@ -1,0 +1,142 @@
+#!/bin/bash
+
+
+#===================================================================================
+#
+# FILE: load_live_database
+#
+# USAGE:
+#
+# DESCRIPTION: This will load the latest live database into an initial site.
+#
+# OPTIONS: see function usage below
+# NOTES: ---
+# AUTHOR: Kevin Bailey, kbailey@freewayprojects.com
+# COMPANY: Freeway Projects
+#===================================================================================
+
+# -------------------------------------------------------------------------------------------------
+# Set up global variables.
+#
+# We are going to explicitly set the script name variable.  Obviously the script name is available
+# as $0 - but this is not consistent and may or may not contain the path.  Also, this means we can
+# use the bash debugger without needing to handle the fact that $0 would contain something like
+# 'bashdb'.
+# -------------------------------------------------------------------------------------------------
+SCRIPT_NAME=load_live_database
+BACKUP_DATE_TIME=$(date +%Y-%m-%d)
+
+echo $BACKUP_DATE_TIME
+echo
+
+
+# Output a usage message - used when the parameters input are not correct.
+usage () {
+    echo "Usage: $SCRIPT_NAME -p [project name]"
+}
+
+# -------------------------------------------------------------------------------------------------
+# Testing parameters
+# -------------------------------------------------------------------------------------------------
+while getopts ":p:" opt; do
+    case $opt in
+	p)
+	    PROJECT=$OPTARG
+	    ;;
+	\?)
+	    echo "Invalid option: -$OPTARG" >&2
+	    usage
+	    exit 1
+	    ;;
+	:)
+	    echo "Option -$OPTARG requires an argument." >&2
+	    usage
+	    exit 1
+	    ;;
+    esac
+done
+
+# Check both parameters have had values assigned.
+if [ -z $PROJECT ]
+then
+    echo "The project name needs to be set."
+    usage
+    exit 1
+fi
+
+
+# -------------------------------------------------------------------------------------------------
+echo
+echo `date`
+echo "Set up requirements specific to projects if needed..."
+# -------------------------------------------------------------------------------------------------
+
+if [ "${PROJECT}" = "project1" ]
+then
+
+PROJECT_DATABASE="project1"
+
+
+else
+
+echo "Unknown project."
+exit
+fi
+
+# -------------------------------------------------------------------------------------------------
+echo
+echo `date`
+echo "Set up some basic requirements..."
+# -------------------------------------------------------------------------------------------------
+mkdir -p /vagrant_data/db_downloads/${PROJECT}
+
+# -------------------------------------------------------------------------------------------------
+echo
+echo `date`
+echo "Load the latest copy of the database..."
+# -------------------------------------------------------------------------------------------------
+
+echo "Remove any current database dump..."
+rm -f /vagrant_data/db_downloads/${PROJECT}/project1-${BACKUP_DATE_TIME}.sql.gz
+
+echo "Copy down the latest MySQL dump file..."
+scp backupreader@example.com:/mnt/backups/project1-${BACKUP_DATE_TIME}.sql.gz /vagrant_data/db_downloads/${PROJECT}
+
+
+echo "Load the dump file into the database..."
+mysqladmin --force drop ${PROJECT_DATABASE}
+mysqladmin create ${PROJECT_DATABASE}
+
+rm -f /vagrant_data/db_downloads/${PROJECT}/project1-${BACKUP_DATE_TIME}.sql
+gzip -vd /vagrant_data/db_downloads/${PROJECT}/project1-${BACKUP_DATE_TIME}.sql.gz
+mysql ${PROJECT_DATABASE} < /vagrant_data/db_downloads/${PROJECT}/project1-${BACKUP_DATE_TIME}.sql
+
+
+### -------------------------------------------------------------------------------------------------
+echo
+echo `date`
+echo "Carry out changes to the dev site to change it from being set up for live..."
+# -------------------------------------------------------------------------------------------------
+
+##
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc all
+
+# NB - These individual cache-clears were tried to avoid features reverting a pathauto variable.
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc drush
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc theme-registry
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc menu
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc css-js
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc block
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc module-list
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc theme-list
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc registry
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc token
+##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc views
+
+
+# -------------------------------------------------------------------------------------------------
+echo
+echo `date`
+echo "Finished."
+# -------------------------------------------------------------------------------------------------
+exit 0
