@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This would be a script which changes the database to make it suitable for loca development.
+
+# Tasks carried out would include disabling cdn, caching, enabling stage_file_proxy (for Drupal) etc.
+
+This file would be specific per project - but it's hoped some generic examples could be stored here.
