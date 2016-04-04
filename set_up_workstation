@@ -16,3 +16,5 @@ $ mkdir -p vagrant_machines/vm1/data
 Now create a Vagrant file which will use the ubuntu/trusty64 box.
 
 ...vagrant_machines/vm1/vm$ vagrant init ubuntu/trusty64
+
+NEED TO SHOW THE VAGRANT FILE WHICH WORKED.
