@@ -1,2 +1,18 @@
-# apt-get install virtualbox vagrant
+# apt-get install virtualbox
 
+# apt-get install vagrant
+
+Add a Vagrant box image for Ubuntu 14.04
+
+$ vagrant box add ubuntu/trusty64
+
+
+
+$ mkdir -p vagrant_machines/vm1/vm
+$ mkdir -p vagrant_machines/vm1/data
+
+
+
+Now create a Vagrant file which will use the ubuntu/trusty64 box.
+
+...vagrant_machines/vm1/vm$ vagrant init ubuntu/trusty64
