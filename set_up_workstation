@@ -1,20 +1,22 @@
-# apt-get install virtualbox
+Install VirtualBox which is the default VM engine for Vagrant - and Vagrant itself.
 
-# apt-get install vagrant
+    # apt-get install virtualbox
+    # apt-get install vagrant
 
-Add a Vagrant box image for Ubuntu 14.04
+Add a Vagrant box image for Ubuntu 14.04 - or use another relevant Vagrant box image.
 
-$ vagrant box add ubuntu/trusty64
+    $ vagrant box add ubuntu/trusty64
 
+Create space for the VM to live.
 
-
-$ mkdir -p vagrant_machines/vm1/vm
-$ mkdir -p vagrant_machines/vm1/data
-
-
+    $ mkdir -p vagrant_machines/vm1/vm
 
 Now create a Vagrant file which will use the ubuntu/trusty64 box.
 
-...vagrant_machines/vm1/vm$ vagrant init ubuntu/trusty64
+    $ cd vagrant_machines/vm1/vm
+    $ vagrant init ubuntu/trusty64
 
-NEED TO SHOW THE VAGRANT FILE WHICH WORKED.
+Next edit the Vagrant file which was created.  Mainly:
+
+    config.vm.hostname = "thing.example.com"
+
