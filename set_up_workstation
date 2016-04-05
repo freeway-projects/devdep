@@ -152,3 +152,6 @@ If necessary pull down the files/ directory contents.
 
     echo "Finished"
 
+Very often the site code is purely the code under sites/all.  In this case the code needs to be pulld down (probably via git) to a source directory (~/src) and a symlink created from the specific site code to sites/all.  NB A symlink can only be created if the original sites/all has been removed or renamed.
+
+Finally create the required settings.php file.  This is probably best created by having an empty database and no initial settings.php file and then running the standard Drupal install wizard.
