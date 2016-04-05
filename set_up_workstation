@@ -1,3 +1,7 @@
+Setting up a Vagrant VM to run a Drupal site which should be accessible from the host machine and from the LAN.  Using https://www.vagrantup.com/docs/share/ it may be possible to share the VM with clients on the wider internet.
+
+NB - This install uses Apache ITK which means that a vhost can be set to run under a specified user account.  This means that all files can be owned by that user and can be served up by the web server.
+
 Install VirtualBox which is the default VM engine for Vagrant - and Vagrant itself.
 
     # apt-get install virtualbox
@@ -54,5 +58,74 @@ Finish setting up the vagrant machine by runnning a script which installs packag
     apt-get -y install mysql-server php5-mysql
     apt-get -y install phpmyadmin
 
+At this point we should have a working LAMP VM - the IP address may vary due to DHCP - but a record should be put into the host machine's /etc/hosts file to give the VM a hostname.
 
+Set up a Drupal site.
 
+This site will be the default site for the server.  Adding other sites should be possible by using vhost directives and having other document roots under /home/vagrant.
+
+Edit the Apache conf file for the default site to make it work for Drupal.  The important part to add is:
+
+    <Directory /home/vagrant/public_html>
+    Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    AssignUserID vagrant vagrant
+
+Get the core Drupal files.
+NB - This could be improved by specifying paths in the wget, tar and mv commands.
+
+    #!/bin/bash
+
+    cd ~
+    wget https://ftp.drupal.org/files/projects/drupal-7.43.tar.gz
+    gzip -vd drupal-7.43.tar.gz
+
+    tar -xf drupal-7.43.tar
+    mv drupal-7.43 public_html
+
+Set up the database.
+
+Create a database and database user to hold the Drupal database - Phpmyadmin could be used for this.  Then add a ~/.my.cnf file to allow access when using scripts.
+
+    [client]
+    user=dbusername
+    password=p4ssw0rd
+
+Create a script to (re)load the database from a dump file.  This will be useful for later on when testing deployment.
+
+    #!/bin/bash
+
+    set -x
+    cd ~
+
+    rm ~/data/tate_redesign/drupal_db/tate_d7-daily.sql
+    wget -P ~/data/tate_redesign/drupal_db http://mu.tate.org.uk/static/tate_d7-daily.sql.gz
+    gzip -vd ~/data/tate_redesign/drupal_db/tate_d7-daily.sql.gz
+
+    mysqladmin --force drop tatemu
+    mysqladmin create tatemu
+
+    mysql tatemu < ~/data/tate_redesign/drupal_db/tate_d7-daily.sql
+
+    echo "Finished"
+
+    exit 0
+
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc all
+
+    # NB - These individual cache-clears were tried to avoid features reverting a pathauto variable.
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc drush
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc theme-registry
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc menu
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc css-js
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc block
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc module-list
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc theme-list
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc registry
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc token
+    ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc views
+    
+    
