@@ -128,4 +128,27 @@ Create a script to (re)load the database from a dump file.  This will be useful 
     ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc token
     ##drush -r /home/kbailey/initial_sites/${INITIAL_SITE_NAME}/web cc views
     
-    
+If necessary pull down the files/ directory contents.
+
+    #!/bin/bash
+
+    set -x
+
+    cd ~
+    rm -rf /home/vagrant/data/site_files
+
+    rm ~/data/...files_daily.tar.gz
+    rm ~/data/...files_daily.tar
+
+    mkdir -p ~/data/...drupal_files
+    mkdir -p ~/...site_files
+
+    wget -P ~/data/...drupal_files http://www.example.com/files_daily.tar.gz
+    gzip -vd ~/data/...files_daily.tar.gz
+
+    tar -xf ~/data/...files_daily.tar -C ~/data/...site_files --strip-components=3
+
+    ln -s ~/data/site_files ~/public_html/sites/default/files
+
+    echo "Finished"
+
