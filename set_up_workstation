@@ -40,3 +40,19 @@ Next edit the Vagrant file which was created.  Mainly:
       sudo apt-get -y install mc emacs git locate                                                    
     SHELL 
 
+Finish setting up the vagrant machine by runnning a script which installs packages directly on the VM which needs user interaction.
+
+    #!/bin/bash
+
+    # The next two lines may be needed to prevent bug when installing apache2-mpm-itk.  Currently
+    # it seems that the restart may be all that is needed.
+    #a2dismod mpm-event
+    #a2enmod mpm-prefork
+    service apache2 restart
+    apt-get -y install apache2-mpm-itk
+
+    apt-get -y install mysql-server php5-mysql
+    apt-get -y install phpmyadmin
+
+
+
