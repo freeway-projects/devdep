@@ -19,4 +19,24 @@ Now create a Vagrant file which will use the ubuntu/trusty64 box.
 Next edit the Vagrant file which was created.  Mainly:
 
     config.vm.hostname = "thing.example.com"
+    config.vm.network "public_network"
+    
+    config.vm.provider "virtualbox" do |vb|
+        #   # Display the VirtualBox GUI when booting the machine                                        
+        #   vb.gui = true                                                                                
+        #                                                                                                
+        #   # Customize the amount of memory on the VM:                                                  
+        vb.memory = "3072"
+    end
+
+    # This will add in packges which do not need user interaction.
+    config.vm.provision "shell", inline: <<-SHELL                                                    
+      sudo apt-get update                                                                            
+      sudo apt-get -y dist-upgrade                                                                   
+      sudo apt-get -y install apache2 php5                                                           
+      sudo a2enmod rewrite                                                                           
+      sudo apt-get -y install php5-intl php5-curl php5-gd php5-mcrypt php5-cli php5-xdebug           
+      sudo service apache2 restart                                                                   
+      sudo apt-get -y install mc emacs git locate                                                    
+    SHELL 
 
